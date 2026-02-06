@@ -1,0 +1,105 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="About | Portfolio">
+  <main>
+    <h1>About Me</h1>
+
+    <section class="about-content">
+      <p>
+        I'm a web developer with a passion for creating clean, performant websites.
+        I enjoy working with modern tools and frameworks to build sites that are both
+        fast and accessible.
+      </p>
+      <p>
+        When I'm not coding, you can find me reading about new web technologies,
+        contributing to open source projects, or exploring the outdoors.
+      </p>
+    </section>
+
+    <section class="skills">
+      <h2>Skills</h2>
+      <ul class="skill-list">
+        <li class="skill-tag">HTML & CSS</li>
+        <li class="skill-tag">JavaScript</li>
+        <li class="skill-tag">TypeScript</li>
+        <li class="skill-tag">Astro</li>
+        <li class="skill-tag">React</li>
+        <li class="skill-tag">Node.js</li>
+        <li class="skill-tag">Git</li>
+        <li class="skill-tag">REST APIs</li>
+      </ul>
+    </section>
+
+    <section class="contact">
+      <h2>Get in Touch</h2>
+      <p>
+        Interested in working together? Feel free to reach out via
+        <a href="mailto:hello@example.com">email</a> or connect on
+        <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>.
+      </p>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  main {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 2rem 0 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 2.5rem 0 1rem;
+    color: #f0f0f0;
+  }
+
+  .about-content p {
+    color: #9ca3af;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin: 0 0 1rem;
+  }
+
+  .skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .skill-tag {
+    background: rgba(96, 165, 250, 0.1);
+    border: 1px solid rgba(96, 165, 250, 0.3);
+    color: #60a5fa;
+    padding: 0.4rem 0.9rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+  }
+
+  .contact p {
+    color: #9ca3af;
+    font-size: 1.05rem;
+    line-height: 1.7;
+  }
+
+  .contact a {
+    color: #60a5fa;
+    text-decoration: none;
+  }
+
+  .contact a:hover {
+    text-decoration: underline;
+  }
+</style>

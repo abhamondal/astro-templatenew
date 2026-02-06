@@ -1,87 +1,76 @@
 ---
 export interface Props {
   title: string;
-  body: string;
+  description: string;
   href: string;
-  icon: string;
+  tags?: string[];
 }
 
-const { href, title, body, icon } = Astro.props;
+const { href, title, description, tags = [] } = Astro.props;
 ---
 
-<li class="link-card">
-  <a href={href}>
-    <div class="card-title-container">
-      <img class="card-icon" src={icon} class="icon" />
-      <h2>
-        {title}
-      </h2>
-    </div>
-    <p>
-      {body}
-    </p>
+<li class="project-card">
+  <a href={href} target="_blank" rel="noopener">
+    <h3>{title}</h3>
+    <p>{description}</p>
+    {tags.length > 0 && (
+      <ul class="tags">
+        {tags.map((tag) => (
+          <li class="tag">{tag}</li>
+        ))}
+      </ul>
+    )}
   </a>
 </li>
-<style>
-  .card-icon {
-    height: 31px;
-  }
-  .card-title-container {
-    display: flex;
-    flex-direction: row;
-    gap: 15px;
-    align-items: center;
-  }
 
-  .link-card {
+<style>
+  .project-card {
     list-style: none;
   }
 
-  .link-card > a {
-    border-radius: 20px;
-    border: 0.85px solid #313538;
-
-    background: linear-gradient(
-      131.92deg,
-      rgba(21, 23, 24, 1) 0%,
-      rgba(38, 41, 43, 1) 105.38%
-    );
-    max-width: 100%;
-
+  .project-card > a {
+    display: block;
+    background: linear-gradient(135deg, rgba(21, 23, 24, 1), rgba(38, 41, 43, 1));
+    border: 1px solid #1f2937;
+    border-radius: 12px;
+    padding: 1.5rem;
     text-decoration: none;
-
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 20px 32px;
-    gap: 15px;
+    transition: border-color 0.2s;
   }
 
-  .link-card:hover > a {
-    background: linear-gradient(
-      131.92deg,
-      rgba(21, 23, 24, 0.7) 0%,
-      rgba(38, 41, 43, 0.7) 105.38%
-    );
+  .project-card > a:hover {
+    border-color: #374151;
   }
 
-  h2 {
-    font-size: 24px;
+  h3 {
+    font-size: 1.2rem;
     font-weight: 700;
-    line-height: 33px;
-    letter-spacing: 0em;
-    margin: 0;
-    color: #fff;
+    color: #f0f0f0;
+    margin: 0 0 0.5rem;
   }
 
   p {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 25px;
-
-    margin: 0;
-
     color: #9ca3af;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin: 0 0 1rem;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .tag {
+    background: rgba(167, 139, 250, 0.1);
+    border: 1px solid rgba(167, 139, 250, 0.25);
+    color: #a78bfa;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
   }
 </style>

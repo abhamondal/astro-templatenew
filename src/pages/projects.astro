@@ -1,0 +1,83 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+
+const projects = [
+  {
+    title: "Weather Dashboard",
+    description: "A real-time weather app that displays forecasts, temperature trends, and weather alerts for any location.",
+    href: "https://github.com",
+    tags: ["TypeScript", "React", "API"],
+  },
+  {
+    title: "Task Manager CLI",
+    description: "A command-line tool for managing tasks and projects with support for priorities, deadlines, and tagging.",
+    href: "https://github.com",
+    tags: ["Node.js", "CLI", "SQLite"],
+  },
+  {
+    title: "Blog Platform",
+    description: "A statically generated blog with Markdown support, syntax highlighting, and RSS feeds.",
+    href: "https://github.com",
+    tags: ["Astro", "Markdown", "CSS"],
+  },
+  {
+    title: "Expense Tracker",
+    description: "A simple app for tracking daily expenses with charts, categories, and monthly summaries.",
+    href: "https://github.com",
+    tags: ["JavaScript", "Chart.js", "LocalStorage"],
+  },
+];
+---
+
+<Layout title="Projects | Portfolio">
+  <main>
+    <h1>Projects</h1>
+    <p class="subtitle">A selection of things I've built.</p>
+
+    <ul class="project-grid">
+      {projects.map((project) => (
+        <Card
+          title={project.title}
+          description={project.description}
+          href={project.href}
+          tags={project.tags}
+        />
+      ))}
+    </ul>
+  </main>
+</Layout>
+
+<style>
+  main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 2rem 0 0.5rem;
+  }
+
+  .subtitle {
+    color: #9ca3af;
+    font-size: 1.1rem;
+    margin: 0 0 2rem;
+  }
+
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+    padding: 0;
+    margin: 0;
+  }
+
+  @media (max-width: 640px) {
+    .project-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
