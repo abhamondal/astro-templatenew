@@ -1,87 +1,147 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
-
-import fleekLogo from "../resources/fleekLogo.svg";
-import fleekIcon from "../resources/fleekIcon.svg";
-import astroLogo from "../resources/astroLogo.svg";
-import astroIcon from "../resources/astroIcon.svg";
-import addIcon from "../resources/addIcon.svg";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="Home | Portfolio">
+  <Nav slot="nav" />
   <main>
-    <div class="title-container">
-      <img class="logo" src={fleekLogo} />
-      <img src={addIcon} />
-      <img class="logo" src={astroLogo} />
-    </div>
-    <p class="description">
-      This is a starter template for creating an Astro site and deploying it on Fleek.
-    </p>
-    <ul role="list" class="link-card-grid">
-      <Card
-        icon={fleekIcon}
-        href="https://docs.fleek.xyz/"
-        title="Fleek Documentation"
-        body="Learn about Fleek & the available services by checking our official docs."
-      />
-      <Card
-        icon={astroIcon}
-        href="https://docs.astro.build/en/concepts/why-astro/"
-        title="Astro Documentation"
-        body="Learn about how Astro works and explore the official API docs."
-      />
-      <Card
-        icon={fleekIcon}
-        href="https://blog.fleek.xyz/"
-        title="Fleek Blog Post"
-        body="Checkout our Blog post about this Astro template."
-      />
-      <Card
-        icon={astroIcon}
-        href="https://astro.build/integrations/"
-        title="Astro Integrations"
-        body="Supercharge your project with new frameworks and libraries."
-      />
-    </ul>
+    <section class="hero">
+      <p class="greeting">Hello, I'm</p>
+      <h1>Alex Developer</h1>
+      <p class="tagline">
+        A web developer who builds fast, accessible, and beautiful websites
+        using modern tools and frameworks.
+      </p>
+      <div class="cta">
+        <a href="/projects" class="btn btn-primary">View Projects</a>
+        <a href="/contact" class="btn btn-secondary">Get in Touch</a>
+      </div>
+    </section>
+
+    <section class="highlights">
+      <div class="highlight-card">
+        <h3>Frontend</h3>
+        <p>Building responsive, performant UIs with modern JavaScript frameworks and CSS.</p>
+      </div>
+      <div class="highlight-card">
+        <h3>Backend</h3>
+        <p>Designing APIs and server-side logic with Node.js, Python, and databases.</p>
+      </div>
+      <div class="highlight-card">
+        <h3>DevOps</h3>
+        <p>Deploying and maintaining applications with CI/CD, Docker, and cloud platforms.</p>
+      </div>
+    </section>
   </main>
+  <Footer slot="footer" />
 </Layout>
 
 <style>
-  .logo {
-    width: 200px;
-  }
-
   main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-    max-width: 850px;
+    max-width: 900px;
     margin: 0 auto;
-    height: 100vh;
+    padding: 0 1.5rem;
   }
 
-  .title-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 50px;
-  }
-
-  .description {
-    font-size: 30px;
-    line-height: 41px;
+  .hero {
+    padding: 6rem 0 4rem;
     text-align: center;
-    color: #e5e7eb;
-    width: 752px;
   }
 
-  .link-card-grid {
+  .greeting {
+    font-size: 1.125rem;
+    color: #60a5fa;
+    margin: 0 0 0.5rem;
+  }
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 1.25rem;
+    line-height: 1.2;
+  }
+
+  .tagline {
+    font-size: 1.2rem;
+    color: #9ca3af;
+    max-width: 560px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.7;
+  }
+
+  .cta {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.75rem 1.75rem;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+
+  .btn:hover {
+    opacity: 0.85;
+    text-decoration: none;
+  }
+
+  .btn-primary {
+    background: #60a5fa;
+    color: #0f0f0f;
+  }
+
+  .btn-secondary {
+    border: 1px solid #374151;
+    color: #e5e7eb;
+  }
+
+  .highlights {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 15px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    padding-bottom: 5rem;
+  }
+
+  .highlight-card {
+    border: 1px solid #1f2937;
+    border-radius: 12px;
+    padding: 1.75rem;
+    background: #161616;
+  }
+
+  .highlight-card h3 {
+    color: #fff;
+    margin: 0 0 0.75rem;
+    font-size: 1.1rem;
+  }
+
+  .highlight-card p {
+    color: #9ca3af;
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 640px) {
+    h1 {
+      font-size: 2rem;
+    }
+
+    .highlights {
+      grid-template-columns: 1fr;
+    }
+
+    .cta {
+      flex-direction: column;
+      align-items: center;
+    }
   }
 </style>

@@ -1,0 +1,39 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer>
+  <div class="footer-inner">
+    <p>&copy; {year} Portfolio. Built with <a href="https://astro.build" target="_blank" rel="noopener">Astro</a>.</p>
+  </div>
+</footer>
+
+<style>
+  footer {
+    border-top: 1px solid #1f2937;
+    padding: 0 1.5rem;
+    margin-top: auto;
+  }
+
+  .footer-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1.5rem 0;
+    text-align: center;
+  }
+
+  p {
+    margin: 0;
+    color: #6b7280;
+    font-size: 0.875rem;
+  }
+
+  a {
+    color: #60a5fa;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+</style>

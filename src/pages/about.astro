@@ -1,0 +1,166 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout title="About | Portfolio">
+  <Nav slot="nav" />
+  <main>
+    <h1>About Me</h1>
+    <div class="content">
+      <p>
+        I'm a web developer with a passion for creating clean, efficient, and
+        user-friendly applications. With experience across the full stack, I
+        enjoy turning complex problems into simple, elegant solutions.
+      </p>
+      <p>
+        My journey in tech started with tinkering on small HTML pages and has
+        since grown into building production applications used by thousands of
+        people.
+      </p>
+
+      <h2>Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h3>Languages</h3>
+          <ul>
+            <li>TypeScript</li>
+            <li>JavaScript</li>
+            <li>Python</li>
+            <li>HTML & CSS</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Frameworks</h3>
+          <ul>
+            <li>Astro</li>
+            <li>React</li>
+            <li>Node.js</li>
+            <li>Express</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Tools</h3>
+          <ul>
+            <li>Git</li>
+            <li>Docker</li>
+            <li>PostgreSQL</li>
+            <li>VS Code</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2>Experience</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span class="date">2023 - Present</span>
+          <h3>Senior Developer</h3>
+          <p>Leading frontend architecture and mentoring junior developers on modern web practices.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="date">2021 - 2023</span>
+          <h3>Full Stack Developer</h3>
+          <p>Built and maintained web applications using React, Node.js, and PostgreSQL.</p>
+        </div>
+        <div class="timeline-item">
+          <span class="date">2019 - 2021</span>
+          <h3>Junior Developer</h3>
+          <p>Developed responsive web pages and contributed to open-source projects.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+  <Footer slot="footer" />
+</Layout>
+
+<style>
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+
+  h1 {
+    font-size: 2.25rem;
+    color: #fff;
+    margin: 3rem 0 2rem;
+  }
+
+  .content p {
+    color: #9ca3af;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin: 0 0 1rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    color: #fff;
+    margin: 2.5rem 0 1.25rem;
+    padding-top: 1rem;
+    border-top: 1px solid #1f2937;
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .skill-group h3 {
+    color: #60a5fa;
+    font-size: 1rem;
+    margin: 0 0 0.75rem;
+  }
+
+  .skill-group ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .skill-group li {
+    color: #9ca3af;
+    padding: 0.35rem 0;
+    font-size: 0.95rem;
+  }
+
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding-bottom: 4rem;
+  }
+
+  .timeline-item {
+    border: 1px solid #1f2937;
+    border-radius: 12px;
+    padding: 1.5rem;
+    background: #161616;
+  }
+
+  .timeline-item .date {
+    font-size: 0.85rem;
+    color: #60a5fa;
+  }
+
+  .timeline-item h3 {
+    color: #fff;
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+  }
+
+  .timeline-item p {
+    color: #9ca3af;
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 640px) {
+    .skills-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
