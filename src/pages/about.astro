@@ -2,50 +2,60 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="About | Portfolio">
+<Layout title="About | CaveExplorer">
   <main>
-    <h1>About Me</h1>
+    <h1>About CaveExplorer</h1>
 
     <section class="about-content">
       <p>
-        I'm a web developer with a passion for creating clean, performant websites.
-        I enjoy working with modern tools and frameworks to build sites that are both
-        fast and accessible.
+        CaveExplorer is a multi-language demonstration project that models cave systems
+        and underground exploration using four different technologies: Java, C#, TypeScript,
+        and Angular.
       </p>
       <p>
-        When I'm not coding, you can find me reading about new web technologies,
-        contributing to open source projects, or exploring the outdoors.
+        Each language tackles a different aspect of speleology — from graph-based
+        cave traversal in Java, to geological modeling in C#, type-safe mapping in
+        TypeScript, and interactive dashboards in Angular.
       </p>
     </section>
 
-    <section class="skills">
-      <h2>Skills</h2>
-      <ul class="skill-list">
-        <li class="skill-tag">HTML & CSS</li>
-        <li class="skill-tag">JavaScript</li>
-        <li class="skill-tag">TypeScript</li>
-        <li class="skill-tag">Astro</li>
-        <li class="skill-tag">React</li>
-        <li class="skill-tag">Node.js</li>
-        <li class="skill-tag">Git</li>
-        <li class="skill-tag">REST APIs</li>
+    <section class="tech-stack">
+      <h2>Technology Stack</h2>
+      <div class="tech-grid">
+        <div class="tech-item">
+          <h3>Java</h3>
+          <p>Graph algorithms, BFS/DFS traversal, cave pathfinding, and exploration simulation.</p>
+        </div>
+        <div class="tech-item">
+          <h3>C#</h3>
+          <p>Object-oriented cave system modeling with chambers, passages, and geological formations.</p>
+        </div>
+        <div class="tech-item">
+          <h3>TypeScript</h3>
+          <p>Type-safe cave mapping with coordinate geometry, distance calculations, and data models.</p>
+        </div>
+        <div class="tech-item">
+          <h3>Angular</h3>
+          <p>Component-based dashboard for cave exploration data, stats, and real-time monitoring.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="facts">
+      <h2>Cave Facts</h2>
+      <ul class="fact-list">
+        <li>The deepest known cave is Veryovkina Cave in Georgia at 2,212 meters.</li>
+        <li>Mammoth Cave in Kentucky is the world's longest known cave system at over 680 km.</li>
+        <li>Cave formations called speleothems can take thousands of years to form.</li>
+        <li>Over 17,000 species of animals are known to live exclusively in caves.</li>
       </ul>
-    </section>
-
-    <section class="contact">
-      <h2>Get in Touch</h2>
-      <p>
-        Interested in working together? Feel free to reach out via
-        <a href="mailto:hello@example.com">email</a> or connect on
-        <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>.
-      </p>
     </section>
   </main>
 </Layout>
 
 <style>
   main {
-    max-width: 700px;
+    max-width: 750px;
     margin: 0 auto;
     padding: 2rem;
   }
@@ -60,7 +70,7 @@ import Layout from "../layouts/Layout.astro";
     font-size: 1.5rem;
     font-weight: 700;
     margin: 2.5rem 0 1rem;
-    color: #f0f0f0;
+    color: #d4a574;
   }
 
   .about-content p {
@@ -70,36 +80,46 @@ import Layout from "../layouts/Layout.astro";
     margin: 0 0 1rem;
   }
 
-  .skill-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    list-style: none;
-    padding: 0;
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .tech-item {
+    background: #0f0f18;
+    border: 1px solid #1e1e2e;
+    border-radius: 10px;
+    padding: 1.25rem;
+  }
+
+  .tech-item h3 {
+    margin: 0 0 0.4rem;
+    color: #f0f0f0;
+    font-size: 1rem;
+  }
+
+  .tech-item p {
     margin: 0;
-  }
-
-  .skill-tag {
-    background: rgba(96, 165, 250, 0.1);
-    border: 1px solid rgba(96, 165, 250, 0.3);
-    color: #60a5fa;
-    padding: 0.4rem 0.9rem;
-    border-radius: 20px;
-    font-size: 0.85rem;
-  }
-
-  .contact p {
     color: #9ca3af;
-    font-size: 1.05rem;
-    line-height: 1.7;
+    font-size: 0.85rem;
+    line-height: 1.5;
   }
 
-  .contact a {
-    color: #60a5fa;
-    text-decoration: none;
+  .fact-list {
+    padding-left: 1.25rem;
+    color: #9ca3af;
+    line-height: 1.8;
+    font-size: 0.95rem;
   }
 
-  .contact a:hover {
-    text-decoration: underline;
+  .fact-list li {
+    margin-bottom: 0.5rem;
+  }
+
+  @media (max-width: 640px) {
+    .tech-grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>

@@ -4,44 +4,56 @@ import Card from "../components/Card.astro";
 
 const projects = [
   {
-    title: "Weather Dashboard",
-    description: "A real-time weather app that displays forecasts, temperature trends, and weather alerts for any location.",
-    href: "https://github.com",
-    tags: ["TypeScript", "React", "API"],
+    title: "Cave Graph Traversal",
+    description: "BFS and DFS algorithms to explore interconnected cave chambers and find optimal paths through underground networks.",
+    tags: ["Graphs", "BFS", "DFS", "Pathfinding"],
+    language: "Java",
   },
   {
-    title: "Task Manager CLI",
-    description: "A command-line tool for managing tasks and projects with support for priorities, deadlines, and tagging.",
-    href: "https://github.com",
-    tags: ["Node.js", "CLI", "SQLite"],
+    title: "Cave System Modeler",
+    description: "Object-oriented model of cave systems with chambers, passages, stalactites, stalagmites, and geological properties.",
+    tags: ["OOP", "Geology", "Modeling"],
+    language: "C#",
   },
   {
-    title: "Blog Platform",
-    description: "A statically generated blog with Markdown support, syntax highlighting, and RSS feeds.",
-    href: "https://github.com",
-    tags: ["Astro", "Markdown", "CSS"],
+    title: "Cave Mapper",
+    description: "Type-safe coordinate mapping system for plotting cave surveys with distance and bearing calculations.",
+    tags: ["Geometry", "Mapping", "Coordinates"],
+    language: "TypeScript",
   },
   {
-    title: "Expense Tracker",
-    description: "A simple app for tracking daily expenses with charts, categories, and monthly summaries.",
-    href: "https://github.com",
-    tags: ["JavaScript", "Chart.js", "LocalStorage"],
+    title: "Cave Dashboard",
+    description: "Angular components for displaying cave exploration stats, environmental readings, and expedition logs.",
+    tags: ["Components", "Services", "Dashboard"],
+    language: "Angular",
+  },
+  {
+    title: "Speleothem Classifier",
+    description: "Classification system for cave formations using enum-based type hierarchies and pattern matching.",
+    tags: ["Enums", "Classification", "Patterns"],
+    language: "Java",
+  },
+  {
+    title: "Underground River Simulator",
+    description: "Simulation of underground water flow through cave passages with erosion and mineral deposit tracking.",
+    tags: ["Simulation", "Hydrology", "Events"],
+    language: "C#",
   },
 ];
 ---
 
-<Layout title="Projects | Portfolio">
+<Layout title="Projects | CaveExplorer">
   <main>
     <h1>Projects</h1>
-    <p class="subtitle">A selection of things I've built.</p>
+    <p class="subtitle">Cave exploration tools built with Java, C#, TypeScript, and Angular.</p>
 
     <ul class="project-grid">
       {projects.map((project) => (
         <Card
           title={project.title}
           description={project.description}
-          href={project.href}
           tags={project.tags}
+          language={project.language}
         />
       ))}
     </ul>

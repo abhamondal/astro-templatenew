@@ -1,0 +1,237 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Code Examples | CaveExplorer">
+  <main>
+    <h1>Code Examples</h1>
+    <p class="subtitle">Cave exploration logic in four languages.</p>
+
+    <section class="example">
+      <div class="example-header">
+        <span class="lang-badge java">Java</span>
+        <h2>Cave Graph Traversal</h2>
+      </div>
+      <p class="desc">BFS pathfinding through interconnected cave chambers.</p>
+      <pre><code>{`public class CaveExplorer {
+    private final Cave cave;
+
+    public List<Chamber> findPath(Chamber start, Chamber target) {
+        Map<Chamber, Chamber> parentMap = new HashMap<>();
+        Queue<Chamber> queue = new LinkedList<>();
+
+        queue.add(start);
+        parentMap.put(start, null);
+
+        while (!queue.isEmpty()) {
+            Chamber current = queue.poll();
+            if (current.equals(target)) {
+                return reconstructPath(parentMap, target);
+            }
+            for (Passage passage : cave.getPassages()) {
+                Chamber neighbor = getNeighbor(passage, current);
+                if (neighbor != null && !parentMap.containsKey(neighbor)) {
+                    parentMap.put(neighbor, current);
+                    queue.add(neighbor);
+                }
+            }
+        }
+        return Collections.emptyList();
+    }
+}`}</code></pre>
+    </section>
+
+    <section class="example">
+      <div class="example-header">
+        <span class="lang-badge csharp">C#</span>
+        <h2>Geological Formation Classifier</h2>
+      </div>
+      <p class="desc">Pattern matching to classify cave formations by position.</p>
+      <pre><code>{`public class GeologicalFormation
+{
+    public FormationType Type { get; }
+    public MineralComposition Mineral { get; }
+    public double HeightCm { get; }
+    public int EstimatedAgeYears { get; }
+
+    public double GrowthRateCmPerYear =>
+        EstimatedAgeYears > 0 ? HeightCm / EstimatedAgeYears : 0;
+
+    public string Classification => Type switch
+    {
+        FormationType.Stalactite or FormationType.SodaStraw
+            => "Ceiling Formation",
+        FormationType.Stalagmite or FormationType.Rimstone
+            => "Floor Formation",
+        FormationType.Column
+            => "Floor-to-Ceiling Formation",
+        FormationType.Helictite
+            => "Eccentric Formation",
+        _ => "Unknown"
+    };
+}`}</code></pre>
+    </section>
+
+    <section class="example">
+      <div class="example-header">
+        <span class="lang-badge typescript">TypeScript</span>
+        <h2>Cave Survey Mapper</h2>
+      </div>
+      <p class="desc">Type-safe coordinate mapping with distance and bearing calculations.</p>
+      <pre><code>{`interface Coordinate { x: number; y: number; z: number; }
+
+interface SurveyLeg {
+  from: SurveyPoint;
+  to: SurveyPoint;
+  distance: number;
+  bearing: number;
+  inclination: number;
+}
+
+function calculateDistance(a: Coordinate, b: Coordinate): number {
+  const dx = b.x - a.x;
+  const dy = b.y - a.y;
+  const dz = b.z - a.z;
+  return Math.sqrt(dx * dx + dy * dy + dz * dz);
+}
+
+function calculateBearing(from: Coordinate, to: Coordinate): number {
+  const radians = Math.atan2(to.x - from.x, to.y - from.y);
+  return ((radians * 180) / Math.PI + 360) % 360;
+}`}</code></pre>
+    </section>
+
+    <section class="example">
+      <div class="example-header">
+        <span class="lang-badge angular">Angular</span>
+        <h2>Cave Dashboard Component</h2>
+      </div>
+      <p class="desc">Reactive dashboard with real-time environment monitoring.</p>
+      <pre><code>{`@Component({
+  selector: 'app-cave-dashboard',
+  standalone: true,
+  imports: [CommonModule, CaveStatsComponent, CaveAlertComponent],
+  template: \`
+    <div class="dashboard">
+      <section class="stats-grid" *ngIf="summary">
+        <app-cave-stats
+          label="Total Chambers"
+          [value]="summary.totalChambers"
+          unit="rooms"
+        />
+        <app-cave-stats
+          label="Max Depth"
+          [value]="summary.maxDepth"
+          unit="meters"
+        />
+        <app-cave-stats
+          label="Active Alerts"
+          [value]="activeAlerts"
+          [highlight]="activeAlerts > 0"
+        />
+      </section>
+    </div>
+  \`
+})
+export class CaveDashboardComponent implements OnInit, OnDestroy {
+  summary: CaveSummary | null = null;
+  activeAlerts = 0;
+  private destroy$ = new Subject<void>();
+
+  constructor(private caveData: CaveDataService) {}
+
+  ngOnInit(): void {
+    this.caveData.getSummary()
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(summary => this.summary = summary);
+  }
+}`}</code></pre>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 2rem 0 0.5rem;
+  }
+
+  .subtitle {
+    color: #9ca3af;
+    font-size: 1.1rem;
+    margin: 0 0 2.5rem;
+  }
+
+  .example {
+    margin-bottom: 3rem;
+  }
+
+  .example-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .example-header h2 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0;
+    color: #f0f0f0;
+  }
+
+  .desc {
+    color: #9ca3af;
+    font-size: 0.95rem;
+    margin: 0 0 1rem;
+  }
+
+  .lang-badge {
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 0.2rem 0.55rem;
+    border-radius: 5px;
+    border: 1px solid;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .lang-badge.java {
+    background: rgba(244, 128, 36, 0.1);
+    border-color: rgba(244, 128, 36, 0.3);
+    color: #f48024;
+  }
+
+  .lang-badge.csharp {
+    background: rgba(155, 89, 182, 0.1);
+    border-color: rgba(155, 89, 182, 0.3);
+    color: #9b59b6;
+  }
+
+  .lang-badge.typescript {
+    background: rgba(49, 120, 198, 0.1);
+    border-color: rgba(49, 120, 198, 0.3);
+    color: #3178c6;
+  }
+
+  .lang-badge.angular {
+    background: rgba(221, 0, 49, 0.1);
+    border-color: rgba(221, 0, 49, 0.3);
+    color: #dd0031;
+  }
+
+  pre {
+    margin: 0;
+  }
+
+  code {
+    color: #c9d1d9;
+  }
+</style>

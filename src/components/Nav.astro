@@ -3,11 +3,12 @@ const currentPath = Astro.url.pathname;
 ---
 
 <nav>
-  <a href="/" class="nav-brand">Portfolio</a>
+  <a href="/" class="nav-brand">CaveExplorer</a>
   <ul class="nav-links">
     <li><a href="/" class:list={[{ active: currentPath === "/" }]}>Home</a></li>
     <li><a href="/about" class:list={[{ active: currentPath === "/about" }]}>About</a></li>
     <li><a href="/projects" class:list={[{ active: currentPath === "/projects" }]}>Projects</a></li>
+    <li><a href="/examples" class:list={[{ active: currentPath === "/examples" }]}>Code</a></li>
   </ul>
 </nav>
 
@@ -24,7 +25,7 @@ const currentPath = Astro.url.pathname;
   .nav-brand {
     font-size: 1.25rem;
     font-weight: 700;
-    color: #f0f0f0;
+    color: #d4a574;
     text-decoration: none;
   }
 
@@ -45,6 +46,6 @@ const currentPath = Astro.url.pathname;
 
   .nav-links a:hover,
   .nav-links a.active {
-    color: #f0f0f0;
+    color: #d4a574;
   }
 </style>

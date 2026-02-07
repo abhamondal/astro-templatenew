@@ -2,32 +2,40 @@
 import Layout from "../layouts/Layout.astro";
 ---
 
-<Layout title="Home | Portfolio">
+<Layout title="CaveExplorer | Discover the Underground">
   <main>
     <section class="hero">
-      <p class="greeting">Hi, I'm</p>
-      <h1>Alex Developer</h1>
+      <p class="greeting">Welcome to</p>
+      <h1>CaveExplorer</h1>
       <p class="tagline">
-        A web developer who builds fast, accessible, and thoughtful websites.
+        A multi-language project exploring cave systems through Java, C#, TypeScript, and Angular.
       </p>
       <div class="cta">
         <a href="/projects" class="btn btn-primary">View Projects</a>
-        <a href="/about" class="btn btn-secondary">About Me</a>
+        <a href="/examples" class="btn btn-secondary">See Code</a>
       </div>
     </section>
 
     <section class="highlights">
       <div class="highlight-card">
-        <h3>Clean Code</h3>
-        <p>Writing maintainable, well-structured code that stands the test of time.</p>
+        <span class="lang-icon">&#9749;</span>
+        <h3>Java</h3>
+        <p>Cave graph traversal and pathfinding algorithms using object-oriented design.</p>
       </div>
       <div class="highlight-card">
-        <h3>Fast Sites</h3>
-        <p>Performance-first approach with static generation and minimal JavaScript.</p>
+        <span class="lang-icon">#</span>
+        <h3>C#</h3>
+        <p>Cave system modeling with geological formations, chambers, and passage networks.</p>
       </div>
       <div class="highlight-card">
-        <h3>Modern Stack</h3>
-        <p>Using tools like Astro, TypeScript, and modern CSS to build great experiences.</p>
+        <span class="lang-icon">TS</span>
+        <h3>TypeScript</h3>
+        <p>Type-safe cave mapping utilities with coordinate systems and data models.</p>
+      </div>
+      <div class="highlight-card">
+        <span class="lang-icon">Ng</span>
+        <h3>Angular</h3>
+        <p>Interactive cave dashboard components for visualizing exploration data.</p>
       </div>
     </section>
   </main>
@@ -55,7 +63,7 @@ import Layout from "../layouts/Layout.astro";
     font-size: 3rem;
     font-weight: 800;
     margin: 0 0 1rem;
-    background: linear-gradient(135deg, #60a5fa, #a78bfa);
+    background: linear-gradient(135deg, #d4a574, #8b6914);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -64,7 +72,7 @@ import Layout from "../layouts/Layout.astro";
   .tagline {
     font-size: 1.2rem;
     color: #9ca3af;
-    max-width: 500px;
+    max-width: 550px;
     margin: 0 auto 2rem;
     line-height: 1.6;
   }
@@ -89,8 +97,8 @@ import Layout from "../layouts/Layout.astro";
   }
 
   .btn-primary {
-    background: linear-gradient(135deg, #60a5fa, #a78bfa);
-    color: #0c0c0c;
+    background: linear-gradient(135deg, #d4a574, #8b6914);
+    color: #0a0a0f;
   }
 
   .btn-secondary {
@@ -100,36 +108,51 @@ import Layout from "../layouts/Layout.astro";
 
   .highlights {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
     padding: 2rem 0;
   }
 
   .highlight-card {
-    background: linear-gradient(135deg, rgba(21, 23, 24, 1), rgba(38, 41, 43, 1));
-    border: 1px solid #1f2937;
+    background: linear-gradient(135deg, #0f0f18, #1a1a28);
+    border: 1px solid #1e1e2e;
     border-radius: 12px;
     padding: 1.5rem;
+    text-align: center;
+  }
+
+  .lang-icon {
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #d4a574;
+    margin-bottom: 0.5rem;
   }
 
   .highlight-card h3 {
     margin: 0 0 0.5rem;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     color: #f0f0f0;
   }
 
   .highlight-card p {
     margin: 0;
     color: #9ca3af;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     line-height: 1.5;
   }
 
-  @media (max-width: 640px) {
+  @media (max-width: 768px) {
     h1 {
       font-size: 2rem;
     }
 
+    .highlights {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
     .highlights {
       grid-template-columns: 1fr;
     }
