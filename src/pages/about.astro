@@ -1,0 +1,125 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="About | CaveExplorer">
+  <main>
+    <h1>About CaveExplorer</h1>
+
+    <section class="about-content">
+      <p>
+        CaveExplorer is a multi-language demonstration project that models cave systems
+        and underground exploration using four different technologies: Java, C#, TypeScript,
+        and Angular.
+      </p>
+      <p>
+        Each language tackles a different aspect of speleology — from graph-based
+        cave traversal in Java, to geological modeling in C#, type-safe mapping in
+        TypeScript, and interactive dashboards in Angular.
+      </p>
+    </section>
+
+    <section class="tech-stack">
+      <h2>Technology Stack</h2>
+      <div class="tech-grid">
+        <div class="tech-item">
+          <h3>Java</h3>
+          <p>Graph algorithms, BFS/DFS traversal, cave pathfinding, and exploration simulation.</p>
+        </div>
+        <div class="tech-item">
+          <h3>C#</h3>
+          <p>Object-oriented cave system modeling with chambers, passages, and geological formations.</p>
+        </div>
+        <div class="tech-item">
+          <h3>TypeScript</h3>
+          <p>Type-safe cave mapping with coordinate geometry, distance calculations, and data models.</p>
+        </div>
+        <div class="tech-item">
+          <h3>Angular</h3>
+          <p>Component-based dashboard for cave exploration data, stats, and real-time monitoring.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="facts">
+      <h2>Cave Facts</h2>
+      <ul class="fact-list">
+        <li>The deepest known cave is Veryovkina Cave in Georgia at 2,212 meters.</li>
+        <li>Mammoth Cave in Kentucky is the world's longest known cave system at over 680 km.</li>
+        <li>Cave formations called speleothems can take thousands of years to form.</li>
+        <li>Over 17,000 species of animals are known to live exclusively in caves.</li>
+      </ul>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  main {
+    max-width: 750px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin: 2rem 0 1.5rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 2.5rem 0 1rem;
+    color: #d4a574;
+  }
+
+  .about-content p {
+    color: #9ca3af;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin: 0 0 1rem;
+  }
+
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .tech-item {
+    background: #0f0f18;
+    border: 1px solid #1e1e2e;
+    border-radius: 10px;
+    padding: 1.25rem;
+  }
+
+  .tech-item h3 {
+    margin: 0 0 0.4rem;
+    color: #f0f0f0;
+    font-size: 1rem;
+  }
+
+  .tech-item p {
+    margin: 0;
+    color: #9ca3af;
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  .fact-list {
+    padding-left: 1.25rem;
+    color: #9ca3af;
+    line-height: 1.8;
+    font-size: 0.95rem;
+  }
+
+  .fact-list li {
+    margin-bottom: 0.5rem;
+  }
+
+  @media (max-width: 640px) {
+    .tech-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

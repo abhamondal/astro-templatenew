@@ -1,87 +1,160 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
-
-import fleekLogo from "../resources/fleekLogo.svg";
-import fleekIcon from "../resources/fleekIcon.svg";
-import astroLogo from "../resources/astroLogo.svg";
-import astroIcon from "../resources/astroIcon.svg";
-import addIcon from "../resources/addIcon.svg";
 ---
 
-<Layout title="Welcome to Astro.">
+<Layout title="CaveExplorer | Discover the Underground">
   <main>
-    <div class="title-container">
-      <img class="logo" src={fleekLogo} />
-      <img src={addIcon} />
-      <img class="logo" src={astroLogo} />
-    </div>
-    <p class="description">
-      This is a new bbnnnnmmmmmvbb template for creating an Astro site and deploying it on Fleek.
-    </p>
-    <ul role="list" class="link-card-grid">
-      <Card
-        icon={fleekIcon}
-        href="https://docs.fleek.xyz/"
-        title="Fleek Documentation"
-        body="Learn about Fleek & the available services by cheking our official docs."
-      />
-      <Card
-        icon={astroIcon}
-        href="https://docs.astro.build/en/concepts/why-astro/"
-        title="Astro Documentation"
-        body="Learn about how Astro works and explore the official API docs."
-      />
-      <Card
-        icon={fleekIcon}
-        href="https://blog.fleek.xyz/"
-        title="Fleek Blog Post"
-        body="Checkout our Blog post about this Astro template."
-      />
-      <Card
-        icon={astroIcon}
-        href="https://astro.build/integrations/"
-        title="Astro Integrations"
-        body="Supercharge your project with new frameworks and libraries."
-      />
-    </ul>
+    <section class="hero">
+      <p class="greeting">Welcome to</p>
+      <h1>CaveExplorer</h1>
+      <p class="tagline">
+        A multi-language project exploring cave systems through Java, C#, TypeScript, and Angular.
+      </p>
+      <div class="cta">
+        <a href="/projects" class="btn btn-primary">View Projects</a>
+        <a href="/examples" class="btn btn-secondary">See Code</a>
+      </div>
+    </section>
+
+    <section class="highlights">
+      <div class="highlight-card">
+        <span class="lang-icon">&#9749;</span>
+        <h3>Java</h3>
+        <p>Cave graph traversal and pathfinding algorithms using object-oriented design.</p>
+      </div>
+      <div class="highlight-card">
+        <span class="lang-icon">#</span>
+        <h3>C#</h3>
+        <p>Cave system modeling with geological formations, chambers, and passage networks.</p>
+      </div>
+      <div class="highlight-card">
+        <span class="lang-icon">TS</span>
+        <h3>TypeScript</h3>
+        <p>Type-safe cave mapping utilities with coordinate systems and data models.</p>
+      </div>
+      <div class="highlight-card">
+        <span class="lang-icon">Ng</span>
+        <h3>Angular</h3>
+        <p>Interactive cave dashboard components for visualizing exploration data.</p>
+      </div>
+    </section>
   </main>
 </Layout>
 
 <style>
-  .logo {
-    width: 200px;
-  }
-
   main {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 40px;
-    max-width: 850px;
+    max-width: 960px;
     margin: 0 auto;
-    height: 100vh;
+    padding: 2rem;
   }
 
-  .title-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 50px;
-  }
-
-  .description {
-    font-size: 30px;
-    line-height: 41px;
+  .hero {
+    padding: 4rem 0 3rem;
     text-align: center;
-    color: #e5e7eb;
-    width: 752px;
   }
 
-  .link-card-grid {
+  .greeting {
+    font-size: 1.1rem;
+    color: #9ca3af;
+    margin: 0 0 0.5rem;
+  }
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 0 0 1rem;
+    background: linear-gradient(135deg, #d4a574, #8b6914);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .tagline {
+    font-size: 1.2rem;
+    color: #9ca3af;
+    max-width: 550px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+  }
+
+  .cta {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .btn {
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 600;
+    transition: opacity 0.2s;
+  }
+
+  .btn:hover {
+    opacity: 0.85;
+  }
+
+  .btn-primary {
+    background: linear-gradient(135deg, #d4a574, #8b6914);
+    color: #0a0a0f;
+  }
+
+  .btn-secondary {
+    border: 1px solid #374151;
+    color: #e5e7eb;
+  }
+
+  .highlights {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 15px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    padding: 2rem 0;
+  }
+
+  .highlight-card {
+    background: linear-gradient(135deg, #0f0f18, #1a1a28);
+    border: 1px solid #1e1e2e;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .lang-icon {
+    display: inline-block;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #d4a574;
+    margin-bottom: 0.5rem;
+  }
+
+  .highlight-card h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.05rem;
+    color: #f0f0f0;
+  }
+
+  .highlight-card p {
+    margin: 0;
+    color: #9ca3af;
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 768px) {
+    h1 {
+      font-size: 2rem;
+    }
+
+    .highlights {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .highlights {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
